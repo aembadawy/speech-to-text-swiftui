@@ -9,9 +9,15 @@ import Testing
 @testable import speech_to_text_swiftui
 
 struct speech_to_text_swiftuiTests {
-
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    
+    @Test func testInitialTranscriptIsEmpty() {
+        let recognizer = SpeechRecognitionViewModel()
+        #expect(recognizer.transcript == "")
     }
-
+    
+    @Test func testTranscriptUpdates() {
+        let recognizer = SpeechRecognitionViewModel()
+        recognizer.transcript = "Hello world"
+        #expect(recognizer.transcript == "Hello world")
+    }
 }
