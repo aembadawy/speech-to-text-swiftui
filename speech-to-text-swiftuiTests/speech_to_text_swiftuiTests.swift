@@ -10,12 +10,12 @@ import Testing
 
 struct speech_to_text_swiftuiTests {
     
-    @Test func testInitialTranscriptIsEmpty() {
+    @MainActor @Test func testInitialTranscriptIsEmpty() {
         let recognizer = SpeechRecognitionViewModel()
         #expect(recognizer.transcript == "")
     }
     
-    @Test func testTranscriptUpdates() {
+    @MainActor @Test func testTranscriptUpdates() {
         let recognizer = SpeechRecognitionViewModel()
         recognizer.transcript = "Hello world"
         #expect(recognizer.transcript == "Hello world")
